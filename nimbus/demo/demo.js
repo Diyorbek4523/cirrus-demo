@@ -1,6 +1,6 @@
 // Nimbus live demo toolbar. Static pages with sample data: switches look, layout and pages only.
 (function () {
-    var BUY = 'https://builtbybit.com/resources/websites/pterodactyl/';
+    var BUY = 'https://builtbybit.com/resources/websites/pterodactyl-v2/themes/';
     var KEY = 'nimbus-demo';
     var h = document.documentElement;
     var load = function () { try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { return {}; } };
