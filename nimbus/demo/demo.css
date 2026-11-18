@@ -1,0 +1,81 @@
+/* Nimbus live demo toolbar. Kept apart from the theme so it never looks like part of the product. */
+.nd-bar {
+    position: fixed;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: calc(100vw - 24px);
+    padding: 8px 10px;
+    border-radius: 14px;
+    background: rgba(12, 13, 22, 0.88);
+    color: #f4f4f8;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 18px 40px -16px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    font: 500 12px/1.2 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+.nd-body { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.nd-bar label { display: flex; flex-direction: column; gap: 3px; color: rgba(244, 244, 248, 0.65); font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; }
+.nd-bar select {
+    appearance: auto;
+    min-width: 92px;
+    padding: 5px 6px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.06);
+    color: #f4f4f8;
+    font: 500 12px ui-sans-serif, system-ui, sans-serif;
+    text-transform: none;
+    letter-spacing: 0;
+}
+.nd-bar select option { color: #111; }
+.nd-toggle {
+    flex-shrink: 0;
+    padding: 8px 10px;
+    border-radius: 9px;
+    border: 0;
+    background: linear-gradient(120deg, #7c5cff, #22d3ee);
+    color: #0b0b14;
+    font: 700 12px ui-sans-serif, system-ui, sans-serif;
+    cursor: pointer;
+}
+.nd-buy {
+    align-self: flex-end;
+    padding: 7px 12px;
+    border-radius: 9px;
+    background: #f4f4f8;
+    color: #0b0b14 !important;
+    font-weight: 700;
+    text-decoration: none !important;
+    white-space: nowrap;
+}
+.nd-collapsed .nd-body { display: none; }
+.nd-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 96px;
+    transform: translate(-50%, 8px);
+    z-index: 1001;
+    padding: 9px 14px;
+    border-radius: 10px;
+    background: rgba(12, 13, 22, 0.92);
+    color: #f4f4f8;
+    font: 500 13px ui-sans-serif, system-ui, sans-serif;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s, transform 0.18s;
+}
+.nd-toast.nd-show { opacity: 1; transform: translate(-50%, 0); }
+@media (max-width: 760px) {
+    .nd-bar { left: 12px; right: 12px; transform: none; max-width: none; flex-direction: column; align-items: stretch; }
+    .nd-body { display: grid; grid-template-columns: 1fr 1fr; }
+    .nd-bar select { width: 100%; }
+    .nd-buy { text-align: center; grid-column: 1 / -1; }
+    .nd-bar.nd-collapsed { left: auto; right: 12px; }
+    body { padding-bottom: 300px; }
+}
+@media (min-width: 761px) { body { padding-bottom: 80px; } }
